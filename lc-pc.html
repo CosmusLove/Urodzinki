@@ -1,0 +1,105 @@
+<html>
+ <head>
+	<title>Urodzinki</title>
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="style-pc.css" />
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        input[type="date"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+		
+		.informacje{
+	width: 100%;
+	height: 80%;
+	color: gray;
+}
+
+.dropbtn {
+  background-color: rgba(128, 128, 128, 0.0);
+  color: black;
+  padding: 16px;
+  font-size: 25px;
+  border: none;
+  cursor: pointer;
+  font-family: Luminari, fantasy;
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+<header>
+<p class="transparent-text">x</p>
+<h1 class="obramowka">Wszystkiego Najlepszego Lau</h1>
+</header>
+
+<div class="menu">
+
+ <div id="p1" class="dropdown" >
+  <a href="index-pc.html"><button class="dropbtn">Home</button></a>
+</div>
+
+ <div id="p2" class="dropdown" >
+  <a href="me_and_you-pc.html"><button class="dropbtn">Me and You</button></a>
+</div>
+
+ <div id="p3" class="dropdown" >
+  <a href="lc-pc.html"><button class="dropbtn" id="wybrane1" >Link_Click</button></a>
+</div>
+
+</div>
+<div class="container">
+    <h1>Rezerwacja terminu</h1> <br>
+	<h1>Wspólne oglądanko?</h1>
+	<h1>Rewatching Link Click?</h1>
+	<h1>Ja i ty?</h1>
+	<br>
+    <form id="reservation-form">
+        <label for="date">Wybierz termin:</label>
+        <input type="date" id="date" name="date">
+        <button type="submit">Zarezerwuj</button>
+    </form>
+</div>
+</div>
+<script>
+    document.getElementById('reservation-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+        const selectedDate = document.getElementById('date').value;
+        sendEmail(selectedDate);
+    });
+
+    function sendEmail(selectedDate) {
+        const email = 'kaszyre@wp.pl'; // Adres e-mail, na który będzie wysłana wiadomość
+        const subject = 'Rezerwacja terminu';
+        const body = 'Wybrany termin: ' + selectedDate;
+        window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
+</script>
+
+</body>
+</html>
